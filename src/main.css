@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*
+*::after,
+*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.pagination-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.pagination-dot.active{
+    background-color: dodgerblue;
+}
+.testimonial-slide{
+    transition: transform 0.5s ease;
+    transform: translateX(-100%);
+}
+.testimonial-slide.active{
+    transform: translateX(0%);
+    transition: transform 0.5s ease;
+    color: rgba(30, 143, 255, 0.322);
+}
+.contact{
+    height: 1000px;
+    
+}

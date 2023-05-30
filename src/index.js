@@ -39,3 +39,61 @@ setInterval(() => {
     activeSlide = (activeSlide + 1) % slides.length;
     setActiveSlide(activeSlide);
 }, 5000);
+
+const rootEl = document.querySelector('.features');
+//console.log(rootEl)
+const cardEl = document.querySelectorAll('.card');
+const imageEl = document.querySelectorAll('.com');
+
+const wrapper = document.querySelector('.com-w');
+
+
+const option = {
+    root: null,
+    rootMargin: '0px',
+    threshold: .3,
+}
+function callback(entries){
+    entries.forEach(entry =>{
+        const intersect = entry.isIntersecting;
+        if (intersect){
+            entry.target.classList.add('active')
+           // console.log('Element is Visible');
+        }
+        else {
+            entry.target.classList.remove('active');
+            //console.log('Element is not Visible');
+
+        }
+    });
+    //console.log(observer);
+}
+const observer = new IntersectionObserver(callback, option)
+cardEl.forEach(card =>{
+    observer.observe(card);
+});
+
+function imageIntersectionOb(entries, observer){
+    entries.forEach(entry =>{
+        const intersect = entry.isIntersecting;
+        if (intersect){
+            console.log('Element is Visible')
+            entry.target.classList.add('img-active');
+        }
+        else{
+            console.log('Element is not visible');
+            entry.target.classList.remove('img-active');
+        }
+    });
+}
+const opImg = {
+    threshold: .5,
+}
+ const observeImg = new IntersectionObserver(imageIntersectionOb, opImg);
+
+imageEl.forEach(image =>{
+    observeImg.observe(image);
+})
+ //observeImg.observe(imageEl);
+
+

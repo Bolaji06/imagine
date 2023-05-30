@@ -37,5 +37,20 @@ body{
 }
 .contact{
     height: 1000px;
-    
+}
+.com{
+    opacity: 0;
+    transition: opacity .6s ease-out;
+}
+.com.img-active{
+    opacity: 1;
+    transition: opacity .1s ease-in;
+}
+.card{
+    opacity: 0;
+    transition: all .2s ease-out;
+}
+.active{
+    opacity: 1;
+    transition: all .3s ease-in;
 }
